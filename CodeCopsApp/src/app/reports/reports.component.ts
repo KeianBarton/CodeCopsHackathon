@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ReportsService } from './reports.service';
+import { IReport } from './IReport';
 
 @Component({
   selector: 'app-reports',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportsComponent implements OnInit {
 
-  constructor() { }
+  pageTitle = "Reports"
+  reports : IReport[]
+
+  constructor(private reportsService: ReportsService) { }
 
   ngOnInit() {
+    this.reportsService.getReports()
+      .subscribe(
+        response => {
+          this.reports = response;
+        },
+        error => {
+          console.log("getOfficers API call failed")
+        }
+      )
   }
 
 }

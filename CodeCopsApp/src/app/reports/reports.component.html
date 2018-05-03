@@ -1,3 +1,6 @@
-<p>
-  reports works!
-</p>
+<app-nav-bar [pageTitle]="pageTitle"></app-nav-bar>
+<ul>
+  <li *ngFor="let report of reports">
+    {{report.title}}    
+  </li>
+</ul>
