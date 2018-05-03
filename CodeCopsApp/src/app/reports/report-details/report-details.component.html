@@ -9,3 +9,4 @@
   <button [disabled]="isSelected(2)" (click)="setTab(2)">Photos</button>
   <button [disabled]="isSelected(3)" (click)="setTab(3)">Notes</button>
 </div>
+<button *ngIf="isInEditMode">Save Report</button>
