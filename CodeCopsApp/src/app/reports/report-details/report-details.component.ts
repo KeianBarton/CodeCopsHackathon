@@ -1,15 +1,21 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { IReport } from '../IReport';
 
 @Component({
   selector: 'app-report-details',
   templateUrl: './report-details.component.html',
   styleUrls: ['./report-details.component.css']
 })
-export class ReportDetailsComponent implements OnInit {
+export class ReportDetailsComponent implements OnInit, IReport {
 
   @Input() pageTitle : string;
   @Input() isInEditMode : boolean;
+
+  @Input() location : string[];
+  @Input() photos : string[];
+  @Input() notes : string;
+
   tab : number;
 
   constructor(private route: ActivatedRoute) {}
@@ -34,6 +40,10 @@ export class ReportDetailsComponent implements OnInit {
 
   isSelected(num: number) {
     return this.tab === num;
+  }
+
+  handleNotesChange(text : string){
+    this.notes = text;
   }
 
 }
