@@ -3,3 +3,8 @@
     background: #2F7684;
     color: #fff
 }
+
+.btnbox {
+    border: 1px solid #5f5d5d;
+    background: transparent;
+}
