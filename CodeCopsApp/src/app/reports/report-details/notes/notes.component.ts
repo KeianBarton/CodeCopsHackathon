@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-notes',
@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotesComponent implements OnInit {
 
-  constructor() { }
+  @Input() notes : string;
+
+  @Output() onNotesChange = new EventEmitter<string>();
+
+  saveText() {
+    this.onNotesChange.emit(this.notes);
+  }
 
   ngOnInit() {
   }

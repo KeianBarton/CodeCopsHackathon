@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+.btncodecops {
+    background: #2F7684;
+    color: #fff
+}
+
+.btnbox {
+    /* border: 1px solid #b2b3b7; */
+    background: transparent;
+}
+.reportTabs { 
+    margin: 0 0 15px 0;
+    width:90%;
+}
+.reportButton { 
+    padding-left: 0;
+    padding-right: 0;
+}
+.bottom {
+    bottom: 0;
+    margin-bottom: 10px;
+    position: absolute;
+}
