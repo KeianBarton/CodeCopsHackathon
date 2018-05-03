@@ -12,6 +12,7 @@ export class ReportDetailsComponent implements OnInit, IReport {
   @Input() pageTitle : string;
   @Input() isInEditMode : boolean;
 
+  @Input() title : string;
   @Input() location : number[];
   @Input() photos : string[];
   @Input() notes : string;

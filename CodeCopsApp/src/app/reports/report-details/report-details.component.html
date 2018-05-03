@@ -3,6 +3,8 @@
     <app-nav-bar [pageTitle]="pageTitle"></app-nav-bar>
   </div>    
 </div>
+<input id="title-field" *ngIf="isInEditMode" type="text">
+<div id="title-text" *ngIf="!isInEditMode">{{title}}</div>
 
 <div id="tab-container" [ngSwitch]="tab">
   <app-location [location]="location" (onLocationChange)="handleLocationChange($event)" *ngSwitchCase="1"></app-location>
