@@ -1,3 +1,13 @@
-<p>
-  photos works!
-</p>
+<div *ngIf="!showCamera">
+    <button class="new-photo-button" (click)=toggleCamera()>New photo</button>
+</div>
+<ul>
+    <li *ngFor="let photo of photos">
+        <img [src]="sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' + photo)">
+    </li>
+</ul>
+<div id="camera-view" *ngIf="showCamera">
+    <button class="closer-camera-button" (click)="toggleCamera()">Close Camera</button>
+    <webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)"></webcam>
+    <button class="take-photo-button" (click)="triggerSnapshot()">Take Picture</button>
+</div>
