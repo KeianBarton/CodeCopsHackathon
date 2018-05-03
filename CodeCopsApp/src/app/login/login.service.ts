@@ -14,13 +14,9 @@ export class LoginService {
   }
   
   getOfficers(): Observable<IOfficer[]> {
-<<<<<<< HEAD
     return this._http.get<IOfficer[]>('http://codeitteam5.westeurope.cloudapp.azure.com/api/officers',
       {headers:{ 'Authorization':  'Basic '+btoa('admin@civica.local:password123') }}
     )
-=======
-    return this._http.get<IOfficer[]>('http://codeitteam5.westeurope.cloudapp.azure.com/api/Officers', { withCredentials: true })
->>>>>>> 3835b18198cb73a1dd614286db2bfba17398ede1
     .do(data => {})
     .map(results => {
       return results.map(res => {
