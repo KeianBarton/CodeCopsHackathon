@@ -2,12 +2,12 @@
 Badgenumber: <input type="number" [(ngModel)]="officerID">
 <ul *ngFor="let officer of officers">
   <li>
-    Officer ID: {{officer.ID}} -- Badgenumber: {{officer.BadgeNumber}} --
+    Officer ID: {{officer.ID}} -- Badgenumber: {{officer.BadgeNumber}}
     <img [src]="sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64,' + officer.Photo)">
   </li>
 </ul>
 <div class="row btn-block">
     <div class="col-md-12">
-        <button class="btn btncodecops btn-block">Login</button>
+        <button class="btn btncodecops btn-block" (click)="Login()">Login</button>
     </div>
   </div>
