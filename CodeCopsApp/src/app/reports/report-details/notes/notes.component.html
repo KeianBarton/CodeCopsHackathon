@@ -1,1 +1,1 @@
-<textarea id="notes-textarea"></textarea>
+<textarea [(ngModel)]="notes" (change)="saveText()" id="notes-textarea"></textarea>

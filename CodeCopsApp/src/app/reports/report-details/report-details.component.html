@@ -7,7 +7,7 @@
 <div id="tab-container" [ngSwitch]="tab">
   <app-location *ngSwitchCase="1"></app-location>
   <app-photos *ngSwitchCase="2"></app-photos>
-  <app-notes *ngSwitchCase="3"></app-notes>
+  <app-notes [notes]="notes" (onNotesChange)="handleNotesChange($event)" *ngSwitchCase="3"></app-notes>
 </div>  
 <div class="tabs-selection row" >
   <div class="col-4 btnbox"><button [disabled]="isSelected(1)" (click)="setTab(1)" class="btn btn-block" ><i class="fa fa-location-arrow"></i></button></div>
