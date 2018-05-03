@@ -3,9 +3,9 @@
   <app-location *ngSwitchCase="1"></app-location>
   <app-photos *ngSwitchCase="2"></app-photos>
   <app-notes *ngSwitchCase="3"></app-notes>
-</div>
-<div class="tabs-selection">
-  <button [disabled]="isSelected(1)" (click)="setTab(1)">Location</button>
-  <button [disabled]="isSelected(2)" (click)="setTab(2)">Photos</button>
-  <button [disabled]="isSelected(3)" (click)="setTab(3)">Notes</button>
+</div>  
+<div class="tabs-selection row" >
+  <div class="col-4"><button [disabled]="isSelected(1)" (click)="setTab(1)" class="btn btncodecops" ><i class="fas fa-location-arrow"></i></button></div>
+  <div class="col-4"><button [disabled]="isSelected(2)" (click)="setTab(2)" class="btn btncodecops">Photos</button></div>
+  <div class="col-4"><button [disabled]="isSelected(3)" (click)="setTab(3)" class="btn btncodecops">Notes</button></div>
 </div>
