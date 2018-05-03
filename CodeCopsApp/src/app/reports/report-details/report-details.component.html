@@ -8,7 +8,7 @@
 
 <div id="tab-container" [ngSwitch]="tab">
   <app-location [location]="location" (onLocationChange)="handleLocationChange($event)" *ngSwitchCase="1"></app-location>
-  <app-photos *ngSwitchCase="2"></app-photos>
+  <app-photos [photos]="photos" (onPhotosChange)="handlePhotosChange($event)" *ngSwitchCase="2"></app-photos>
   <app-notes [notes]="notes" (onNotesChange)="handleNotesChange($event)" *ngSwitchCase="3"></app-notes>
 </div>  
 

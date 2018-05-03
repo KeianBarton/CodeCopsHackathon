@@ -17,7 +17,7 @@ export class ReportDetailsComponent implements OnInit, IReport {
   @Input() photos : string[];
   @Input() notes : string;
 
-  id : number;
+  id: number;
   tab : number;
 
   constructor(private route: ActivatedRoute) {}
@@ -50,6 +50,10 @@ export class ReportDetailsComponent implements OnInit, IReport {
 
   handleLocationChange(coords : number[]){
     this.location = coords;
+  }
+
+  handlePhotosChange(photos : string[]){
+    this.photos = photos;
   }
 
 }

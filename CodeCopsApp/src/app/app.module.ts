@@ -16,6 +16,7 @@ import { ProfileModalComponent } from './shared/modal/profile-modal/profile-moda
 import { DeleteModalComponent } from './shared/modal/delete-modal/delete-modal.component';
 import { LoginService } from './login/login.service';
 import { HttpClientModule } from '@angular/common/http';
+import { WebcamModule } from 'ngx-webcam';
 import { ReportsService } from './reports/reports.service';
 
 
@@ -37,11 +38,13 @@ import { ReportsService } from './reports/reports.service';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    WebcamModule
   ],
   providers: [
     LoginService,
-    ReportsService],
+    ReportsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
