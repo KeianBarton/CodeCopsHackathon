@@ -17,7 +17,8 @@ export class PhotosComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
-    this.photos = new Array<string>();
+    if (!this.photos)
+      this.photos = new Array<string>();
   }
 
   public showCamera = false;
@@ -36,6 +37,7 @@ export class PhotosComponent implements OnInit {
   public handleImage(webcamImage: WebcamImage): void {
     this.toggleCamera();
     this.photos.unshift(webcamImage.imageAsBase64);
+    this.onPhotosChange.emit(this.photos);
   }
 
   public get triggerObservable(): Observable<void> {
