@@ -1,4 +1,6 @@
 <app-nav-bar [pageTitle]="pageTitle"></app-nav-bar>
-<p>
-  login works!
-</p>
+<ul>
+  <li *ngFor="let officer of officers">
+    {{officer}}
+  </li>
+</ul>
