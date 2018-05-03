@@ -1,11 +1,11 @@
 <app-nav-bar [pageTitle]="pageTitle"></app-nav-bar>
 <div id="tab-container" [ngSwitch]="tab">
-  <app-location *ngSwitchDefault *ngSwitchCase="1"></app-location>
+  <app-location *ngSwitchCase="1"></app-location>
   <app-photos *ngSwitchCase="2"></app-photos>
   <app-notes *ngSwitchCase="3"></app-notes>
 </div>
 <div class="tabs-selection">
-  <button [active]="isSelected(1)" (click)="setTab(1)">Location</button>
-  <button [active]="isSelected(2)" (click)="setTab(2)">Photos</button>
-  <button [active]="isSelected(3)" (click)="setTab(3)">Notes</button>
+  <button [disabled]="isSelected(1)" (click)="setTab(1)">Location</button>
+  <button [disabled]="isSelected(2)" (click)="setTab(2)">Photos</button>
+  <button [disabled]="isSelected(3)" (click)="setTab(3)">Notes</button>
 </div>
