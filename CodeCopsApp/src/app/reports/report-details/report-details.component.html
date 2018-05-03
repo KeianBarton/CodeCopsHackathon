@@ -10,8 +10,8 @@
   <app-notes *ngSwitchCase="3"></app-notes>
 </div>  
 <div class="tabs-selection row" >
-  <div class="col-4"><button [disabled]="isSelected(1)" (click)="setTab(1)" class="btn btncodecops" ><i class="fa fa-location-arrow"></i></button></div>
-  <div class="col-4"><button [disabled]="isSelected(2)" (click)="setTab(2)" class="btn btncodecops"><i class="fa fa-camera"></i></button></div>
-  <div class="col-4"><button [disabled]="isSelected(3)" (click)="setTab(3)" class="btn btncodecops"><i class="fa fa-file"></i></button></div>
+  <div class="col-4 btnbox"><button [disabled]="isSelected(1)" (click)="setTab(1)" class="btn btn-block" ><i class="fa fa-location-arrow"></i></button></div>
+  <div class="col-4 btnbox"><button [disabled]="isSelected(2)" (click)="setTab(2)" class="btn btn-block"><i class="fa fa-camera"></i></button></div>
+  <div class="col-4 btnbox"><button [disabled]="isSelected(3)" (click)="setTab(3)" class="btn btn-block"><i class="fa fa-file"></i></button></div>
 </div>
 <button *ngIf="isInEditMode">Save Report</button>
