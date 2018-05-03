@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IReport } from '../IReport';
+import { ReportsService } from '../reports.service';
 
 @Component({
   selector: 'app-report-details',
@@ -20,7 +21,10 @@ export class ReportDetailsComponent implements OnInit, IReport {
   id: number;
   tab : number;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute,
+              private reportsService : ReportsService,
+              private router : Router
+            ) {}
   
   ngOnInit() {
     this.isInEditMode = this.route.snapshot.data['isInEditMode'];
@@ -34,6 +38,18 @@ export class ReportDetailsComponent implements OnInit, IReport {
     {
       this.pageTitle = "View Report";
     }
+
+    this.reportsService.getReports()
+     .subscribe(
+       response => {
+         var lastId = response.slice(-1)[0].id;
+         this.id = (lastId) ? lastId + 1 : 1;
+       },
+       error => {
+         console.log("getOfficers API call failed")
+       }
+     )
+     
   }
 
   setTab(num: number) {
@@ -54,6 +70,19 @@ export class ReportDetailsComponent implements OnInit, IReport {
 
   handlePhotosChange(photos : string[]){
     this.photos = photos;
+  }
+
+  saveReport()
+  {
+    var report = {
+      id : this.id,
+      title : this.title,
+      location : this.location,
+      photos : this.photos,
+      notes : this.notes
+    };
+    this.reportsService.postReport(report);
+    this.router.navigate(['reports']);
   }
 
 }
