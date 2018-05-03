@@ -14,6 +14,8 @@ import { PhotosComponent } from './reports/report-details/photos/photos.componen
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { ProfileModalComponent } from './shared/modal/profile-modal/profile-modal.component';
 import { DeleteModalComponent } from './shared/modal/delete-modal/delete-modal.component';
+import { LoginService } from './login/login.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -31,10 +33,12 @@ import { DeleteModalComponent } from './shared/modal/delete-modal/delete-modal.c
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
