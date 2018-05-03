@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-report-details',
@@ -7,9 +7,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportDetailsComponent implements OnInit {
 
-  constructor() { }
+  @Input() pageTitle : string;
+  @Input() isInEditMode : boolean;
+  tab : number;
 
   ngOnInit() {
+    this.tab = 1;
+    if (this.isInEditMode)
+    {
+      this.pageTitle = "Create Report";
+    }
+    else
+    {
+      this.pageTitle = "View Report";
+    }
+  }
+
+  setTab(num: number) {
+    this.tab = num;
+  }
+
+  isSelected(num: number) {
+    return this.tab === num;
   }
 
 }
