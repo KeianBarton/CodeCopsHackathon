@@ -19,6 +19,7 @@ export class ReportsService {
       return results.map(res => {
         let result: IReport;
         result = {
+          id: res.id,
           title: res.title,
           location: res.location,
           photos: res.photos,

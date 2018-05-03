@@ -17,6 +17,7 @@ export class ReportDetailsComponent implements OnInit, IReport {
   @Input() photos : string[];
   @Input() notes : string;
 
+  id : number;
   tab : number;
 
   constructor(private route: ActivatedRoute) {}
