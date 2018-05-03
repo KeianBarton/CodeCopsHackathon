@@ -1,13 +1,13 @@
 <div *ngIf="!showCamera">
-    <button class="btn btncodecops" id="new-photo-button" (click)=toggleCamera()>New photo</button>
+    <button *ngIf="isInEditMode" class="btn btncodecops" id="new-photo-button" (click)=toggleCamera()>New photo</button>
 </div>
-<ul>
+<ul id="photosList">
     <li *ngFor="let photo of photos">
         <img [src]="sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' + photo)">
     </li>
 </ul>
 <div id="camera-view" *ngIf="showCamera">
-    <button class="closer-camera-button" (click)="toggleCamera()">Close Camera</button>
+    <button class="close-camera-button" (click)="toggleCamera()">Close Camera</button>
     <webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)"></webcam>
     <button class="take-photo-button" (click)="triggerSnapshot()">Take Picture</button>
 </div>

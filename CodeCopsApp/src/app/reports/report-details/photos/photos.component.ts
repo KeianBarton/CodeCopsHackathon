@@ -14,14 +14,19 @@ export class PhotosComponent implements OnInit {
   @Input() photos : string[];
   @Output() onPhotosChange = new EventEmitter<Array<string>>();
 
+  cameraHeight : number;
+
   constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
+    this.cameraHeight = window.innerHeight;
     if (!this.photos)
       this.photos = new Array<string>();
   }
 
   public showCamera = false;
+
+  @Input() isInEditMode : boolean;
 
   // webcam snapshot trigger
   private trigger: Subject<void> = new Subject<void>();

@@ -8,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 export class NotesComponent implements OnInit {
 
   @Input() notes : string;
+  @Input() isInEditMode : boolean;
 
   @Output() onNotesChange = new EventEmitter<string>();
 

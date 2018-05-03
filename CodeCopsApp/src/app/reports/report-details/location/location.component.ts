@@ -11,6 +11,7 @@ export class LocationComponent implements OnInit {
   map: google.maps.Map;
   infoWindow: google.maps.InfoWindow;
   marker : google.maps.Marker;
+  @Input() isInEditMode : boolean;
   @Input() location : number[];
   @Output() onLocationChange = new EventEmitter<Array<number>>();
   latLng : google.maps.LatLng;
@@ -38,7 +39,7 @@ export class LocationComponent implements OnInit {
       position: self.latLng,
       map: self.map,
       title: 'Selected Location',
-      draggable: true,
+      draggable: self.isInEditMode,
       animation: google.maps.Animation.DROP
     });
     function moveMarker() {

@@ -1,17 +1,18 @@
 <div id="report-details-upper-container">
   <div class="row">
     <div class="col-sm-12">
-      <app-nav-bar [pageTitle]="pageTitle"></app-nav-bar>
+      <app-nav-bar [isInReportDetailsView]=true [pageTitle]="pageTitle"></app-nav-bar>
     </div>    
   </div>
+  <p>Title (*)</p>
   <input id="title-field" *ngIf="isInEditMode" type="text">
-  <div id="title-text" *ngIf="!isInEditMode">{{title}}</div>
+  <div id="title-text" *ngIf="!isInEditMode">Example Report</div>
 </div>
 <div [ngSwitch]="tab">
   <div id="report-details-sub-component-container">
-    <app-location [location]="location" (onLocationChange)="handleLocationChange($event)" *ngSwitchCase="1"></app-location>
-    <app-photos [photos]="photos" (onPhotosChange)="handlePhotosChange($event)" *ngSwitchCase="2"></app-photos>
-    <app-notes [notes]="notes" (onNotesChange)="handleNotesChange($event)" *ngSwitchCase="3"></app-notes>
+    <app-location [isInEditMode]="isInEditMode" [location]="location" (onLocationChange)="handleLocationChange($event)" *ngSwitchCase="1"></app-location>
+    <app-photos [isInEditMode]="isInEditMode" [photos]="photos" (onPhotosChange)="handlePhotosChange($event)" *ngSwitchCase="2"></app-photos>
+    <app-notes [isInEditMode]="isInEditMode" [notes]="notes" (onNotesChange)="handleNotesChange($event)" *ngSwitchCase="3"></app-notes>
   </div>
   <div id="report-details-lower-container" class="bottom btn-block">
       <div class="tabs-selection row reportTabs" >

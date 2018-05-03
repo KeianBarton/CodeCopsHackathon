@@ -1,6 +1,4 @@
-<div id="nav-bar-container">
-  <button *ngIf="isInReportDetailsView">Back</button>
-  <div>
-    <h1>{{pageTitle}}</h1>
-  </div>
+<div class="row" id="nav-bar-container">
+    <button class="col-sm-1" *ngIf="isInReportDetailsView" (click)="goBackToReports()"><i class="fa fa-arrow-left"></i></button>
+    <h1 class="col-sm-10">{{pageTitle}}</h1>
 </div>
