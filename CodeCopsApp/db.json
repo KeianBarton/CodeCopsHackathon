@@ -1,3 +1,9 @@
 {
-    
+    "officers" : [
+         {
+             "id" : 1,
+             "badge number" : 1,
+             "photo" : "base64string  foo foo"
+         }
+    ]
 }
