@@ -1,6 +1,6 @@
 export interface IOfficer {
     id: number;
-    badgeNumber: number;
+    BadgeNumber: number;
     rank: number;
     department: string;
     photo: string;

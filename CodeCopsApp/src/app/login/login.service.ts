@@ -15,16 +15,16 @@ export class LoginService {
   }
   
   getOfficers(): Observable<IOfficer[]> {
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    const options = { withCredentials : true, headers: headers};
-    return this._http.get<IOfficer[]>('http://codeitteam5.westeurope.cloudapp.azure.com/Employee/Officers', {withCredentials : true, headers: headers})
+    return this._http.get<IOfficer[]>('http://codeitteam5.westeurope.cloudapp.azure.com/api/officers',
+      {headers:{ 'Authorization':  'Basic '+btoa('admin@civica.local:password123') }}
+    )
     .do(data => {})
     .map(results => {
       return results.map(res => {
         let result: IOfficer;
         result = {
           id: res.id,
-          badgeNumber: res.badgeNumber,
+          BadgeNumber: res.BadgeNumber,
           rank: res.rank,
           department: res.department,
           photo: res.photo
