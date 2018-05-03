@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
-body{
+html, body {
+    min-height: 70vh !important;
+    height: 70vh;
+    max-height: 70vh;
+}
+body {
     font-size:24px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color:#333333;
@@ -7,6 +12,7 @@ body{
 
 .container {
     max-width: 100%;
+    height: 100%;
 }
 .btncodecops {
     background: #2F7684;
@@ -19,7 +25,7 @@ body{
 }
 .reportTabs { 
     margin: 0 0 15px 0;
-    width:98%; /*  temp hack */
+    width:100%; 
 }
 .reportButton { 
     padding-left: 0;
@@ -28,5 +34,5 @@ body{
 .bottom {
     bottom: 0;
     margin-bottom: 10px;
-    position: absolute;
+    /* position: absolute; */
 }

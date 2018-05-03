@@ -6,21 +6,23 @@
 <input id="title-field" *ngIf="isInEditMode" type="text">
 <div id="title-text" *ngIf="!isInEditMode">{{title}}</div>
 
-<div id="tab-container" [ngSwitch]="tab">
+<div id="tab-container" class="h-100 btn-block" [ngSwitch]="tab">
   <app-location [location]="location" (onLocationChange)="handleLocationChange($event)" *ngSwitchCase="1"></app-location>
   <app-photos *ngSwitchCase="2"></app-photos>
   <app-notes [notes]="notes" (onNotesChange)="handleNotesChange($event)" *ngSwitchCase="3"></app-notes>
+  <div class="bottom btn-block">
+      <div class="tabs-selection row reportTabs" >
+        <div class="col-4 btnbox reportButton"><button [disabled]="isSelected(1)" (click)="setTab(1)" class="btn btn-block" ><i class="fa fa-location-arrow"></i></button></div>
+        <div class="col-4 btnbox reportButton"><button [disabled]="isSelected(2)" (click)="setTab(2)" class="btn btn-block"><i class="fa fa-camera"></i></button></div>
+      <div class="col-4 btnbox reportButton"><button [disabled]="isSelected(3)" (click)="setTab(3)" class="btn btn-block"><i class="fa fa-file"></i></button></div>
+      </div>
+      <div class="row btn-block">
+        <div class="col-md-12">
+            <button class="btn btncodecops btn-block" *ngIf="isInEditMode">Save Report</button>
+        </div>
+      </div>
+    </div>
+
 </div>  
 
-<div class="bottom btn-block">
-  <div class="tabs-selection row reportTabs" >
-    <div class="col-4 btnbox reportButton"><button [disabled]="isSelected(1)" (click)="setTab(1)" class="btn btn-block" ><i class="fa fa-location-arrow"></i></button></div>
-    <div class="col-4 btnbox reportButton"><button [disabled]="isSelected(2)" (click)="setTab(2)" class="btn btn-block"><i class="fa fa-camera"></i></button></div>
-  <div class="col-4 btnbox reportButton"><button [disabled]="isSelected(3)" (click)="setTab(3)" class="btn btn-block"><i class="fa fa-file"></i></button></div>
-  </div>
-  <div class="row btn-block">
-    <div class="col-md-12">
-        <button class="btn btncodecops btn-block" *ngIf="isInEditMode">Save Report</button>
-    </div>
-  </div>
-</div>
+
