@@ -5,5 +5,13 @@
              "badge number" : 1,
              "photo" : "base64string  foo foo"
          }
-    ]
+    ],
+
+    "reports" : [
+        {
+            "location" : [1, 2],
+            "photos" : "base64string",
+            "notes" : "foo foo"
+        }
+   ]
 }

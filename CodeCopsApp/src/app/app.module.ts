@@ -17,6 +17,7 @@ import { DeleteModalComponent } from './shared/modal/delete-modal/delete-modal.c
 import { LoginService } from './login/login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { WebcamModule } from 'ngx-webcam';
+import { ReportsService } from './reports/reports.service';
 
 
 @NgModule({
@@ -40,7 +41,10 @@ import { WebcamModule } from 'ngx-webcam';
     AppRoutingModule,
     WebcamModule
   ],
-  providers: [LoginService],
+  providers: [
+    LoginService,
+    ReportsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

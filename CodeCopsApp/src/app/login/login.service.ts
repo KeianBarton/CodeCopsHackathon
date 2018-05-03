@@ -6,7 +6,6 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map'
-import { Options } from 'selenium-webdriver/chrome';
 
 @Injectable()
 export class LoginService {
@@ -15,9 +14,7 @@ export class LoginService {
   }
   
   getOfficers(): Observable<IOfficer[]> {
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    const options = { withCredentials : true, headers: headers};
-    return this._http.get<IOfficer[]>('http://codeitteam5.westeurope.cloudapp.azure.com/Employee/Officers', {withCredentials : true, headers: headers})
+    return this._http.get<IOfficer[]>('http://codeitteam5.westeurope.cloudapp.azure.com/api/Officers', { withCredentials: true })
     .do(data => {})
     .map(results => {
       return results.map(res => {
