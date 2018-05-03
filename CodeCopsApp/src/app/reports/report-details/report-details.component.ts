@@ -12,7 +12,8 @@ export class ReportDetailsComponent implements OnInit, IReport {
   @Input() pageTitle : string;
   @Input() isInEditMode : boolean;
 
-  @Input() location : string[];
+  @Input() title : string;
+  @Input() location : number[];
   @Input() photos : string[];
   @Input() notes : string;
 
@@ -44,6 +45,10 @@ export class ReportDetailsComponent implements OnInit, IReport {
 
   handleNotesChange(text : string){
     this.notes = text;
+  }
+
+  handleLocationChange(coords : number[]){
+    this.location = coords;
   }
 
 }

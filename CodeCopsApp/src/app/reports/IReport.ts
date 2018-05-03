@@ -1,5 +1,6 @@
 export interface IReport {
-    location : string[];
+    title : string;
+    location : number[];
     photos : string[];
     notes : string;
 }

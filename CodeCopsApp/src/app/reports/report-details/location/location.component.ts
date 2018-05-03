@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, EventEmitter, Input, Output } from '@angular/core';
 import { } from '@types/googlemaps';
 
 @Component({
@@ -11,14 +11,23 @@ export class LocationComponent implements OnInit {
   map: google.maps.Map;
   infoWindow: google.maps.InfoWindow;
   marker : google.maps.Marker;
+  @Input() location : number[];
+  @Output() onLocationChange = new EventEmitter<Array<number>>();
   latLng : google.maps.LatLng;
-
+  
   constructor() { }
 
   ngOnInit() {
     var self = this;
     self.infoWindow = new google.maps.InfoWindow;
-    self.latLng = new google.maps.LatLng(51.4594843,-2.5880095);
+    if(self.location && self.location[0] && self.location[1])
+    {
+      self.latLng = new google.maps.LatLng(self.location[0], self.location[1]);
+    }
+    else
+    {
+      self.latLng = new google.maps.LatLng(51.4594843,-2.5880095);
+    }
     var mapProp = {
       center: self.latLng,
       zoom: 15,
@@ -32,20 +41,17 @@ export class LocationComponent implements OnInit {
       draggable: true,
       animation: google.maps.Animation.DROP
     });
-    self.marker.addListener('click',
-      function() {
-        if (self.marker.getAnimation() !== null) {
-          self.marker.setAnimation(null);
-        } else {
-          self.marker.setAnimation(google.maps.Animation.BOUNCE);
-        }
-      }
-    );
+    function moveMarker() {
+      self.setMarkerPosition(self.marker.getPosition(), self.marker, self);
+    }
+    self.marker.addListener('click', moveMarker);
+    self.marker.addListener('dragend', moveMarker);
   }
 
   setMarkerPosition(position, marker, self) {
     marker.setPosition(position);
     self.latLng = position;
+    self.onLocationChange.emit([marker.getPosition().lat(),marker.getPosition().lng()]);
   }
 
   getCurrentLocation() {
