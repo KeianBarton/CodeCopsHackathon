@@ -10,3 +10,6 @@ h1{
     font-weight: bold;
     padding: 5px
     }
+#nav-bar-container {
+    max-height: 10vh;
+}

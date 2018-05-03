@@ -10,9 +10,11 @@ import { IOfficer } from './IOfficer';
 export class LoginComponent implements OnInit {
 
   pageTitle = "Login"
-  officers : IOfficer[] = [
-    {id: 1, badgeNumber: 976, rank: 1, department: "Management", photo: ""}
-  ]
+  officers : IOfficer[] 
+  
+  //= [
+  //  {id: 1, BadgeNumber: 976, rank: 1, department: "Management", photo: ""}
+  //]
 
   constructor(private loginService: LoginService) { }
 
