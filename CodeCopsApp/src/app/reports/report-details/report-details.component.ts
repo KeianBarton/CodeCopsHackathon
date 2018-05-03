@@ -28,6 +28,7 @@ export class ReportDetailsComponent implements OnInit, IReport {
   
   ngOnInit() {
     this.isInEditMode = this.route.snapshot.data['isInEditMode'];
+    this.id = this.route.snapshot.params['id'];
 
     this.tab = 1;
     if (this.isInEditMode)
@@ -38,18 +39,6 @@ export class ReportDetailsComponent implements OnInit, IReport {
     {
       this.pageTitle = "View Report";
     }
-
-    this.reportsService.getReports()
-     .subscribe(
-       response => {
-         var lastId = response.slice(-1)[0].id;
-         this.id = (lastId) ? lastId + 1 : 1;
-       },
-       error => {
-         console.log("getOfficers API call failed")
-       }
-     )
-     
   }
 
   setTab(num: number) {
