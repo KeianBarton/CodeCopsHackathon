@@ -21,11 +21,11 @@ export class LoginService {
       return results.map(res => {
         let result: IOfficer;
         result = {
-          id: res.id,
+          ID: res.ID,
           BadgeNumber: res.BadgeNumber,
-          rank: res.rank,
-          department: res.department,
-          photo: res.photo
+          Rank: res.Rank,
+          Department: res.Department,
+          Photo: res.Photo.Content
           }
           return result;
         });
@@ -38,9 +38,6 @@ export class LoginService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const options = {headers: headers};
     return this._http.post<any>('http://localhost:3000/officers', body, options)
-    .do(data => {
-      // do something
-    })
     .catch(this.errorHandler);
   }
 

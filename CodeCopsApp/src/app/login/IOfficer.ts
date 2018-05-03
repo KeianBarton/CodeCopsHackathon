@@ -1,7 +1,7 @@
 export interface IOfficer {
-    id: number;
+    ID: number;
     BadgeNumber: number;
-    rank: number;
-    department: string;
-    photo: string;
+    Rank: number;
+    Department: string;
+    Photo: string;
   }

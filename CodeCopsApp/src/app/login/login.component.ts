@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from './login.service';
 import { IOfficer } from './IOfficer';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
@@ -10,13 +11,10 @@ import { IOfficer } from './IOfficer';
 export class LoginComponent implements OnInit {
 
   pageTitle = "Login"
-  officers : IOfficer[] 
-  
-  //= [
-  //  {id: 1, BadgeNumber: 976, rank: 1, department: "Management", photo: ""}
-  //]
+  officers : IOfficer[];
+  officerID : number;
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.loginService.getOfficers()
@@ -28,6 +26,10 @@ export class LoginComponent implements OnInit {
           console.log("getOfficers API call failed")
         }
       )
+  }
+
+  officerIdMatches(officerId : number){
+    return this.officerID === officerId;
   }
 
 }
