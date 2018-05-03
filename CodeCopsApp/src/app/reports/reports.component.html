@@ -5,11 +5,15 @@
 </div>
 <div class="row">
   <div class="col-sm-12">
-    <button class="btn btncodecops btn-block">New Report</button>
+    <button class="btn btncodecops btn-block" (click)="newReport()">New Report</button>
   </div>
 </div>
 <ul>
   <li *ngFor="let report of reports">
-    {{report.title}}    
+    <div class="row">
+        <div class="col-sm-8">{{report.title}}</div> 
+        <button class="col-sm-2">Edit</button>
+        <button class="col-sm-2">Delete</button>
+    </div>
   </li>
 </ul>
