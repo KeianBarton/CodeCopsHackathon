@@ -35,10 +35,7 @@ export class ReportsService {
     const body = JSON.stringify(report);
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const options = {headers: headers};
-    return this._http.post<any>('http://localhost:3000/officers', body, options)
-    .do(data => {
-      // do something
-    })
+    return this._http.post<any>('http://localhost:3000/reports', body, options)
     .catch(this.errorHandler);
   }
 
